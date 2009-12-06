@@ -1,22 +1,26 @@
-// Twitter API
+/* Twitter API
+ *************/
 twitter.getFriends('marcuswestin', function(userIds){})
 twitter.getUserInfo('marcuswestin', function(userInfo){})
 twitter.getTimeline('marcuswestin', function(tweets){})
 twitter.getLoggedInStatus(function(status){})
 
-// Twitter search API
+/* Twitter search API
+ ********************/
 twitter.getMentions('marcuswestin', function(response))
 
-// for setting and retrieving the cache
+/* Tweet cache - useful for development and testing
+ **************************************************/
 twitter.addToCache(url, data);
 twitter.getCache();
 twitter.setCache({ url1: response1, url2: response2 });
 
-// very useful while debugging, to avoid hitting your rate limit
+// very useful for debugging, to avoid hitting your rate limit while testing.
 var cacheString = twitter.getCache().toSource();
 twitter.setCache(eval(cacheString));
 
-// Get mentions
+/* Examples
+ **********/
 twitter.getMentions('marcuswestin', function(response) {
 	response.profile_image_url
 	response.max_id
@@ -42,7 +46,6 @@ twitter.getMentions('marcuswestin', function(response) {
 	tweet.source
 })
 
-// Get a user's timeline
 twitter.getTimeline('marcuswestin', function(tweets){
 	var tweet = tweets[0];
 	tweet.truncated
@@ -85,11 +88,3 @@ twitter.getTimeline('marcuswestin', function(tweets){
 	userInfo.utc_offset
 })
 
-// for setting and retrieving the cache
-twitter.addToCache(url, data);
-twitter.getCache();
-twitter.setCache({ url1: response1, url2: response2 });
-
-// very useful for debugging, to avoid hitting your rate limit while testing.
-var cacheString = twitter.getCache().toSource();
-twitter.setCache(eval(cacheString));
