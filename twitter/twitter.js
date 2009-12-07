@@ -1,4 +1,5 @@
 var twitter = {};
+if (typeof exports != 'undefined') { exports.twitter = twitter; } // for node.js
 (function() {
 	// expose this so that it can be overwritten if in e.g. node.js
 	twitter.fetchUrl = function(url, callback) {
@@ -90,4 +91,4 @@ var twitter = {};
 	twitter.getCache = function() { return _cache; }
 })();
 
-exports.twitter = twitter;
+

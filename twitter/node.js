@@ -1,8 +1,5 @@
-var sys = require('sys');
 var http = require('http');
-
-require.paths.push('twitter');
-var twitter = require('twitter').twitter;
+var twitter = exports.twitter = require('./twitter').twitter;
 
 twitter.fetchUrl = function(url, callback) {
 	var host = url.match(/^https?:\/\/search\.twitter\.com/) ? 'search.twitter.com' : 'twitter.com';
@@ -17,8 +14,6 @@ twitter.fetchUrl = function(url, callback) {
 		})
 	})
 }
-
-exports.twitter = twitter
 
 // twitter.getMentions('marcuswestin', function(response) {
 // 	var tweets = response.results;
