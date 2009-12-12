@@ -87,4 +87,3 @@ twitter.getTimeline('marcuswestin', function(tweets){
 	userInfo.profile_background_tile
 	userInfo.utc_offset
 })
-
